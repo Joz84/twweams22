@@ -1,0 +1,13 @@
+<div class="hidden">
+  <div id="current_user_id">
+    <%= current_user.id %>
+  </div>
+</div>
+<div class="wrapper-messenger">
+  <div class="container-fluid">
+    <div class="row">
+      <%= render 'shared/channel-list' %>
+      <%= render 'shared/messages-box' %>
+    </div>
+  </div>
+</div>

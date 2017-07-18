@@ -1,0 +1,26 @@
+<div class="col-md-2" id="channel-list">
+  <p><%= link_to "Create a new channel", new_channel_path %></p>
+  <h3><%= @channel.default_name(current_user) %></h3>
+  <% if @channel.one_to_one? || @admin %>
+    <%= link_to "edit", edit_channel_path(@channel) %>
+  <% end %>
+  <ul>
+    <% @subscriptions.each do |subscription| %>
+      <% if !current_user?(subscription.user) %>
+        <li><%= subscription.user.alias %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <ul>
+    <% current_user.channels.each do |channel| %>
+      <li>
+        <% if current_user.messages.last == nil %>
+          <% current_user.messages.last == 0 %>
+        <% end %>
+        <div <%= unread_channel_class(current_user, channel, @channel)%> >
+          <%= link_to channel.default_name(current_user), channel %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
