@@ -15,7 +15,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
       b = parseInt(current_user_id)
       x = data.image_preview
       if x is null
-        x = ''
+        x = " "
       $('#messages-table').append '<li id="#message-container"><div id="message-infos"><h1>' + data.alias + '</h1> <p> | '+ data.msg_date+'</p></div>
       <div class="content">' +data.image_link+ '</div> <div class="iframe">' +x+ '</div></li>'
       if a is b
