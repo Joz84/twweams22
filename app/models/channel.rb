@@ -20,5 +20,5 @@ class Channel < ApplicationRecord
     default_name.delete(current_user.alias)
     default_name[0...2].join(", ")
   end
-
+  
 end
