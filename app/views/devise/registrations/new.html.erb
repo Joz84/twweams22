@@ -1,18 +1,43 @@
-<h2>Sign up</h2>
+<div class="users-new slider">
+  <div id="form">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+      <div id="name">
+        <%= f.input :first_name, autofocus: true, required: true %>
+        <%= f.input :last_name, required: true %>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <div id="location">
+        <%= f.input :city, required: true %>
+        <%= f.input :country, required: true %>
+      </div>
+      <div id="more-info">
+        <%= f.input :email, required: true %>
+        <%= f.input :gender, collection: User.genders.keys, as: :radio_buttons, item_label_class: "radio-inline", item_wrapper_tag: false, label: false %>
+      </div>
+      <div id="password">
+        <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, required: true %>
+      </div>
+      <%= f.input :bio, placeholder: 'Ex: Je suis génial !' %>
 
-  <div class="form-inputs">
-    <%= f.input :alias %>
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+      <div id="favorite">
+        <%= f.input :book, placeholder: "Ex: Le crime de l'Orient Express, Titeuf, ..." %>
+        <%= f.input :movie, placeholder: 'Ex: Harry Potter, Lord Of The Rings, ...' %>
+        <%= f.input :music, placeholder: 'Ex: Daft Punk, RadioHead, ...' %>
+      </div>
+
+      <div class="display-none">
+        <%= f.input :birthday, start_year: Date.today.year - 110, end_year: Date.today.year, selected: DateTime.parse(session[:birthday]) %>
+      </div>
+      <div class="photo">
+        <%= f.input :photo, as: :attachinary %>
+      </div>
+      <div class="submit-btn">
+        <%= f.button :submit, "Sign up", style: 'width: 100%;' %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%= javascript_include_tag 'slider-home' %>

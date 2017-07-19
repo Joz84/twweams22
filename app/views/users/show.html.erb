@@ -1,0 +1,37 @@
+<div class="container" id="profile-show">
+  <div class="persos-info-container">
+    <div class="profile-left">
+
+      <div id="profile-picture">
+        <%= image_tag 'elements/scotch.png', alt: 'scotch', id: "scotch"%>
+        <%= link_to_edit(@user, default_image_tag( @user )) %>
+      </div>
+      <%= image_tag date_photo_path(@user), alt: 'birthday-icon', id:"birthday-icon" %>
+
+      <div id="info-list">
+        <h1 class="playfair"><%= @user.full_name %></h1><br>
+        <p id="birthday"><%= @user.birthday.strftime("%d/%m/%y") %></p><br>
+        <p id="location"><%= @user.location %></p>
+        <%= link_to 'Messenger', root_path, id: 'messenger-btn', class: gender_type(@user) %>
+      </div>
+    </div>
+    <div class="profile-right">
+      <div class="profile-right-top">
+        <h2>About <%= @user.first_name %></h2>
+        <p><%= @user.summary %></p>
+      </div>
+      <div class="profile-right-bottom <%= @user.gender %>">
+        <h2><b>Preferences</b></h2>
+        <p>Favorite movie : <b><em><%= @user.movie? ? @user.movie : 'No content' %></em></b></p>
+        <p>Favorite music : <b><em><%= @user.music? ? @user.music : 'No content' %></em></b></p>
+        <p>Favorite book : <b><em><%= @user.book? ? @user.book : 'No content' %></em></b></p>
+      </div>
+    </div>
+  </div>
+  <div id="separate-bar">
+    <%= image_tag 'elements/picto carte-01.png', alt: 'map' %>
+  </div>
+  <div id="map"></div>
+</div>
+
+<%= render 'shared/map' %>

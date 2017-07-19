@@ -30,6 +30,20 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+gem 'country_select'
+gem 'cloudinary'
+gem 'attachinary'
+gem 'jquery-fileupload-rails'
+gem 'charly_dev', '~> 1.0.2'
+
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 gem 'pg_search'
 gem 'faraday'
 gem 'iframely'

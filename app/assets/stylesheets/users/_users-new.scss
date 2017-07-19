@@ -1,0 +1,58 @@
+.users-new {
+  height:90vh;
+  // background-color:rgba($blue,0.1);
+  background-image: image-url('bg-home-02.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding-top: 1em;
+
+  #form {
+    width:45vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($grey,0.6);
+    border-radius:30px;
+    border:2px solid white;
+    padding:2em 3em;
+    margin:auto;
+
+    input {
+      font-size: 0.9em;
+      font-weight: lighter;
+      color:$dark-blue;
+    }
+
+    label {
+      color:$dark-blue;
+    }
+
+    .submit-btn {
+      width:20%;
+      margin: auto;
+      text-align: center;
+      input {
+        background-color: $dark-blue;
+        color:$grey;
+        border:1px solid $dark-blue;
+        -webkit-transition: 0.4s;
+        -o-transition: 0.4s;
+        transition: 0.4s;
+        &:hover {
+          background-color: $grey;
+          color:$dark-blue;
+        }
+      }
+    }
+
+    #name,#location,#more-info,#password,#favorite {
+      display:flex;
+      flex-direction: row;
+      justify-content:space-between;
+      align-items: center;
+    }
+    #password,#more-info {
+      justify-content: space-around;
+    }
+  }
+}

@@ -1,10 +1,75 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container" id="profile-edit">
+  <div class="persos-info-container">
+    <div class="profile-left">
 
+      <div id="profile-picture">
+        <%= image_tag 'elements/scotch.png', alt: 'scotch', id: "scotch"%>
+        <%= link_to_edit(@user, default_image_tag( @user )) %>
+      </div>
+      <div id="birthday-icon">
+        <%= image_tag date_photo_path(@user), alt: 'birthday-icon' %>
+      </div>
+
+      <div id="info-list">
+        <h1 class="playfair"><%= @user.full_name %></h1><br>
+        <p id="birthday"><%= @user.birthday.strftime("%d/%m/%y") %></p><br>
+        <p id="location"><%= @user.location %></p>
+        <%= link_to 'Messenger', root_path, id: 'messenger-btn', class: gender_type(@user) %>
+      </div>
+    </div>
+    <div class="profile-right">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <div class="profile-right-top">
+          <div class="favorite-inputs">
+            <h2>About <%= @user.first_name %></h2>
+            <%= f.input :bio, label: false, :input_html => {rows: 2}, placeholder: 'Ex: Je suis génial !' %>
+          </div>
+        </div>
+        <div class="profile-right-bottom <%= @gender %>">
+          <h2><b>Preferences</b></h2>
+          <div class="favorite-inputs">
+            <p>Favorite movie : </p><b><em><%= f.input :movie, label: false, placeholder: 'Ex: Harry Potter, Lord Of The Rings, ...' %></em></b>
+          </div>
+          <div class="favorite-inputs">
+            <p>Favorite music : </p><b><em><%= f.input :music, label: false, placeholder: 'Ex: Daft Punk, RadioHead, ...' %></em></b>
+          </div>
+          <div class="favorite-inputs">
+            <p>Favorite book : </p><b><em><%= f.input :book, label: false, placeholder: "Ex: Le crime de l'Orient Express, Titeuf, ..." %></em></b>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+          <div class="password-inputs">
+            <%= f.input :password, autocomplete: "off", hint: "Leave it blank if you don't want to change it.", required: false %>
+            <%= f.input :current_password, hint: "We need your current password to confirm your changes.", required: true %>
+          </div>
+          <div id="buttons">
+            <div class='return-btn'>
+              <%= link_to 'Retour au profil', current_user %>
+            </div>
+            <div class="submit-btn">
+              <%= f.button :submit, "Update", class: @user.gender == 'male' ? 'color-men' : 'color-women' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div id="separate-bar">
+    <%= image_tag 'elements/picto carte-01.png', alt: 'map' %>
+  </div>
+  <div id="map"></div>
+</div>
+
+<%= render 'shared/map' %>
+<!--
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :email, required: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -24,4 +89,4 @@
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back %> -->

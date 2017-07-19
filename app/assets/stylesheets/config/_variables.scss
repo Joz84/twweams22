@@ -3,8 +3,20 @@
  * ------------------------------------- */
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto');
 $base-font: "Open Sans", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
+
+.playfair {
+  font-family: 'Playfair Display', serif !important;
+}
+
+.female {
+  background-color: #f9ebf3;
+}
+.male {
+  background-color: #e2e4e6;
+}
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -32,3 +44,8 @@ $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
 $gray: #000000;
+
+$dark-blue:rgb(59,73,90);
+$blue:rgb(0,173,196);
+$pink:rgb(226,157,194);
+$grey:rgb(233,235,237);
