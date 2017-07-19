@@ -17,6 +17,8 @@ class ChannelsController < ApplicationController
     # IMPORTANT. This is essential for the websocket authentification !!! :)
     cookies.signed[:user_id] = current_user.id
     cookies.signed[:channel_id] = params[:id]
+
+    @iframely = Iframely::Requester.new api_key: ENV['IFRAMELY_KEY']  
   end
 
   def new

@@ -31,3 +31,6 @@ group :development, :test do
 end
 
 gem 'pg_search'
+gem 'faraday'
+gem 'iframely'
+gem 'rinku'
