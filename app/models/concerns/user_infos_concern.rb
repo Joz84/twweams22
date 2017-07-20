@@ -8,8 +8,8 @@ module UserInfosConcern
         has_many :users, through: :channels
         # belongs_to :last_channel, class_name: :Channel, foreign_key: "channel_id"
 
-        validates :alias, presence: true
-        validates :alias, uniqueness: true
+        # validates :alias, presence: true
+        # validates :alias, uniqueness: true
 
         include PgSearch
         pg_search_scope :pgsearch,
@@ -19,6 +19,10 @@ module UserInfosConcern
                     trigram: { threshold: 0.3 }
                   },
           ignoring: :accents
+
+        def alias
+          self.alias || "#{self.first_name} #{self.last_name}"
+        end
 
         def friends
           users

@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def find_channel
-    @channel = Channel.find(params[:channel_id])
+    @channel = Channel.first(params[:channel_id])
   end
 
   def select_params

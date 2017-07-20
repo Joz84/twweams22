@@ -1,0 +1,17 @@
+  var homepage = document.querySelector('.slider');
+
+  var img2 = "url(<%= asset_path 'bg-home-02.jpg' %>)",
+      img3 = "url(<%= asset_path 'bg-home-03.jpg' %>)",
+      img4 = "url(<%= asset_path 'bg-home-04.jpg' %>)";
+
+  var array = [img4,img3,img2];
+
+  var i = 0;
+
+  setInterval(function(){
+    if (i==array.length) {
+       i=0;
+     }
+    homepage.style.backgroundImage = array[i];
+    i++;
+  },4500);
