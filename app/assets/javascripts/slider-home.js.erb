@@ -1,4 +1,5 @@
   var homepage = document.querySelector('.slider');
+  var number = document.querySelector('#nbr-twweams');
 
   var img2 = "url(<%= asset_path 'bg-home-02.jpg' %>)",
       img3 = "url(<%= asset_path 'bg-home-03.jpg' %>)",
@@ -7,6 +8,7 @@
   var array = [img4,img3,img2];
 
   var i = 0;
+  var x = 0;
 
   setInterval(function(){
     if (i==array.length) {
@@ -15,3 +17,8 @@
     homepage.style.backgroundImage = array[i];
     i++;
   },4500);
+
+  setInterval(function(){
+    x += 4.41;
+    number.innerHTML = Math.round(x);
+  },1000)

@@ -12,7 +12,7 @@ User.destroy_all
 Channel.destroy_all
 c1 = Channel.create(name: 'general')
 
-u0 =  User.create(email: 'a@gmail.com', password: 'azerty', first_name: 'Super', alias: 'Super Admin', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Bordeaux', country: 'FRANCE', last_channel_id: Channel.first)
+u0 =  User.create(email: 'a@gmail.com', password: 'azerty', first_name: 'Super', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Bordeaux', country: 'FRANCE', last_channel_id: Channel.first)
 
 User.all.each do |user|
   Subscription.create(user: user, channel: c1)

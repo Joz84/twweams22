@@ -19,14 +19,21 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-
+    width:50%;
+    h1 {
+      color:$grey;
+    }
+    #nbr-twweams {
+      font-size: 2em;
+      margin:1.5em 0;
+      color:$grey;
+    }
     h2 {
       font-size: 1.6em;
       color:$grey;
     }
 
     #go-btn {
-      width:100%;
       background-color: $blue;
       color:$grey;
       border:1px solid transparent;

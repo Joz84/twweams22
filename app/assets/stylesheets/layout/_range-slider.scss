@@ -92,11 +92,11 @@ $range-label-width: 60px !default;
 .range-slider__value {
   display: inline-block;
   position: absolute;
-  color: $dark-blue;
+  color: $grey;
   line-height: 20px;
   text-align: center;
   border-radius: 3px;
-  background: $grey;
+  background: transparent;
   padding: 5px 10px;
   top:4px;
   // &:after {
