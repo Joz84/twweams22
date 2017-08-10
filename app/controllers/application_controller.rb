@@ -4,15 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :define_channels_users
 
-  # def after_sign_up_path_for(resource)
-  #  coco
-  # end
+  protected
 
   def configure_permitted_parameters
-    user_data = [:alias]
-
-    devise_parameter_sanitizer.permit(:sign_up, keys: user_data)
-    devise_parameter_sanitizer.permit(:account_update, keys: user_data)
+    sign_up_attributes = [:first_name, :last_name, :email, :city, :country, :gender, :bio, :music, :book, :movie, :birthday, :photo]
+    update_attributes = [:bio, :music, :book, :movie, :photo]
+    devise_parameter_sanitizer.permit(:sign_up, keys: sign_up_attributes)
+    devise_parameter_sanitizer.permit(:account_update, keys: update_attributes)
   end
 
   def define_channels_users

@@ -1,0 +1,46 @@
+<div id="users-index">
+  <div id="form-responsive">
+    <%= simple_form_for :selection, url: selection_path, method: :get do |f| %>
+      <div id="filters">
+        <div id="date-select">
+          <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false, selected: @birthday %>
+        </div>
+        <%= render 'range' %>
+        <div id="gender-box">
+          <%= f.input :male, as: :boolean, class: "margin-zero" %>
+          <%= f.input :female, as: :boolean, class: "margin-zero" %>
+        </div>
+      </div>
+      <div id="find-container">
+        <h1 id="find-btn"><%= f.button :submit, 'FIND' %></h1>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="users-container">
+    <div id="users-list">
+      <% @users.each do |user| %>
+        <%= link_to user do %>
+          <div class="profile-picture">
+            <%= user.gender == 'male' ? (image_tag 'elements/Avatar bleu-01.png', alt: 'avatar', id: "avatar") : (image_tag 'elements/Avatar rose-01.png', alt: 'avatar', id: "avatar") %>
+            <p class="username"><%= user.full_name %></p>
+            <p class="location"><%= user.location %></p>
+            <% if user.gender? %>
+              <div class="add-line">
+                <%= link_to root_path do %>
+                  <%= user.gender == 'male' ? (image_tag 'elements/bouton-plus-bleu.png', alt: 'btn-plus-bleu',class:'add-btn') : (image_tag 'elements/bouton-plus-rose.png',alt: 'btn-plus-rose',class:'add-btn') %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div id="separate-bar">
+      <%= image_tag 'elements/picto carte-01.png', alt: 'map' %>
+    </div>
+    <div id="map"></div>
+  </div>
+</div>
+
+<%= render 'shared/map' %>

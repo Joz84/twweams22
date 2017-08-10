@@ -1,29 +1,34 @@
-<div class="navbar-wagon">
+
+<div class="navbar-wagon <%= (!user_signed_in?) || (action_name != 'index') ? 'padding' : nil %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "logo-01.png" %>
   <% end %>
-
+  <% if user_signed_in? && controller_name == 'users' && action_name == 'index' %>
+    <div id="form-navbar">
+      <%= simple_form_for :selection, url: selection_path, method: :get do |f| %>
+        <div id="date-select">
+          <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false, selected: @birthday %>
+        </div>
+        <%= render 'range' %>
+        <div id="gender-box">
+          <%= f.input :male, as: :boolean, class: "margin-zero" %>
+          <%= f.input :female, as: :boolean, class: "margin-zero" %>
+        </div>
+        <h1 id="find-btn"><%= f.button :submit, 'FIND' %></h1>
+      <% end %>
+    </div>
+  <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="hidden">
-            <div id="current_user_id">
-              <%= current_user.id %>
-            </div>
-          </div>
-          <% if current_user.total_unread_messages_nbr %>
-                <div class="badge badge-blue <%= 'hidden' if current_user.total_unread_messages_nbr == 0 %>" id="notification-<%= current_user.id %>">
-                  <%= current_user.total_unread_messages_nbr %>
-                </div>
-          <% end %>
+          <%= image_tag 'elements/Courrier-01.png', alt: 'menu-item', class: "courrier" %>
+          <div class="badge badge-blue">3</div>
         </div>
       <% end %>
 
@@ -33,13 +38,13 @@
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <%= link_to current_user do %>
+                <i class="fa fa-users"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-pencil"></i> <%= t(".profile", default: "Edit Profile") %>
               <% end %>
             </li>
             <li>
@@ -55,17 +60,36 @@
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
     <% end %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-wagon-item hidden-md hidden-lg" id="navbar-smartphone">
+    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <div class="badge-container">
+        <%= image_tag 'elements/Courrier-01.png', alt: 'menu-item', class: "courrier" %>
+        <div class="badge badge-blue">3</div>
+      </div>
+    <% end %>
     <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <%= image_tag 'elements/Menu-01.png', alt: 'dropdown', id:'dropdown-bars', class: 'dropdown-toggle', data: {toggle: 'dropdown'} %>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li>
+          <%= link_to current_user do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            <i class="fa fa-pencil"></i> <%= t(".profile", default: "Edit Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

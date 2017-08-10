@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.3)
       actionpack (= 5.0.3)
@@ -39,8 +40,12 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    attachinary (1.3.1)
+      cloudinary (~> 1.1.0)
+      rails (>= 3.2)
     autoprefixer-rails (7.1.1.2)
       execjs
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -53,6 +58,10 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
+    charly_dev (1.0.2)
+    cloudinary (1.1.7)
+      aws_cf_signer
+      rest-client
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -62,6 +71,14 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    countries (2.0.8)
+      i18n_data (~> 0.7.0)
+      money (~> 6.7)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (3.0.0)
+      countries (~> 2.0)
+      sort_alphabetical (~> 1.0)
     debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -69,6 +86,8 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
     faraday (0.12.1)
@@ -78,21 +97,30 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     gon (6.1.0)
       actionpack (>= 3.0)
       json
       multi_json
       request_store (>= 1.0)
     hashie (3.5.6)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.8.4)
+    i18n_data (0.7.0)
     iframely (0.1.0)
       faraday
       hashie
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-fileupload-rails (0.4.7)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      sass (>= 3.2)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -111,8 +139,11 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
+    money (6.9.0)
+      i18n (>= 0.6.4, < 0.9)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    netrc (0.11.0)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -147,6 +178,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.3)
       sprockets-rails (>= 2.0.0)
+    rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -167,6 +199,10 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rinku (2.0.2)
     sass (3.4.24)
     sass-rails (5.0.6)
@@ -178,7 +214,10 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    sixarm_ruby_unaccent (1.1.2)
     slop (3.6.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -198,6 +237,10 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
+    unicode_utils (1.4.0)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -208,18 +251,25 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attachinary
   autoprefixer-rails
   better_errors
   binding_of_caller
   bootstrap-sass
+  charly_dev (~> 1.0.2)
+  cloudinary
   coffee-rails
+  country_select
   devise
   faraday
   figaro
   font-awesome-sass
+  geocoder
+  gmaps4rails
   gon (~> 6.1)
   iframely
   jbuilder (~> 2.0)
+  jquery-fileupload-rails
   jquery-rails
   listen (~> 3.0.5)
   pg
@@ -228,6 +278,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.0.3)
+  rails-assets-underscore!
   redis
   rinku
   sass-rails

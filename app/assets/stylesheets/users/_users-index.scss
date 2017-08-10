@@ -1,0 +1,144 @@
+#users-index {
+  #filters {
+    background-color: #606b79;
+    padding:2em 2em 1.5em;
+    width:100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    #date-select{
+      margin-right: 2em;
+      .form-inline {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      align-self: center;
+        select {
+          text-align: center;
+          background-color: #e9ebed;
+          border:0px solid transparent;
+          overflow: hidden;
+          outline: none;
+          border-radius: 0px;
+          margin:0 0.1em;
+          color:$dark-blue;
+        }
+      }
+    }
+    #gender-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 2em;
+      margin-right: 3em;
+      .checkbox {
+        margin:0;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+    label {
+      vertical-align: middle;
+      color: #e9ebed;
+      margin-left: 0.5em;
+      font-weight: 400;
+    }
+  }
+  #find-container {
+    background-color: $dark-blue;
+    width:100vw;
+    #find-btn {
+      background-color: $blue;
+      width:8em;
+      text-align: center;
+      margin:0 auto;
+      font-size: 1.2em;
+      -webkit-transition: 0.4s;
+      -o-transition: 0.4s;
+      transition: 0.4s;
+
+      input {
+        background-color: transparent;
+        border: transparent;
+        color:white;
+        width:100%;
+        height: 100%;
+      }
+      &:hover{
+        filter:contrast(80%);
+      }
+    }
+  }
+  #users-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height:100%;
+    #users-list {
+      background-color: $grey;
+      padding:2em 2em;
+      min-width: 25em;
+      max-width: 26em;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: flex-start;
+      .profile-picture {
+        margin-bottom: 1em;
+        margin-left: 0.5em;
+        width:10em;
+        height: 14em;
+        text-align: center;
+        background-color: white;
+        box-shadow: 1px 1px 3px rgba($gray,0.1);
+        padding:0.5em 0.5em 0.5em;
+        z-index: 9999;
+        #avatar {
+          padding-bottom: 0.5em;
+          width:9em;
+        }
+        p {
+          margin:0;
+          color:$dark-blue;
+          letter-spacing: 1px;
+        }
+        .username {
+          text-transform: uppercase;
+          font-weight: bolder;
+          font-size: 0.85em;
+        }
+        .location {
+          font-size: 0.7em;
+        }
+      }
+      .add-line {
+        width:10em;
+        margin-top:2.2em;
+        margin-left: -0.5em;
+        height:1vh;
+        background-color: $dark-blue;
+        position: absolute;
+        img {
+          position: absolute;
+          width:2.2em;
+          margin-top:-0.93em;
+          margin-left: -1.1em;
+        }
+      }
+    }
+    #map {
+      width:100%;
+      min-height:90vh;
+    }
+  }
+
+  #form-responsive {
+    display: none;
+  }
+
+  #separate-bar {
+    display: none;
+  }
+}

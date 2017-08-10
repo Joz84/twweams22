@@ -2,3 +2,51 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+#pages-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:90vh;
+  width:100vw;
+  background-image: image-url('bg-home-02.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  #birthday-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width:50%;
+    h1 {
+      color:$grey;
+    }
+    #nbr-twweams {
+      font-size: 2em;
+      margin:1.5em 0;
+      color:$grey;
+    }
+    h2 {
+      font-size: 1.6em;
+      color:$grey;
+    }
+
+    #go-btn {
+      background-color: $blue;
+      color:$grey;
+      border:1px solid transparent;
+      -webkit-transition: 0.4s ease-in-out;
+      -o-transition: 0.4s ease-in-out;
+      transition: 0.4s ease-in-out;
+      &:hover {
+        font-weight: bold;
+        font-size: 1.1em;
+        background-color: $grey;
+        color:$blue;
+        border:1px solid $blue;
+      }
+    }
+  }
+}

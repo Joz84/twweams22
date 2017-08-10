@@ -10,6 +10,21 @@
   padding-bottom: 5em;
 }
 
+// separated bar
+
+#separate-bar {
+  height:0.7vh;
+  width:100vw;
+  background-color: $dark-blue;
+  img {
+    position: absolute;
+    left:47.8vw;
+    width:2.2em;
+    margin-top:-0.93em;
+    z-index: 9000;
+  }
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -22,4 +37,21 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+.display-none {
+  display: none !important;
+}
+
+// .display-none {
+//   display: none !important;
+// }
+
+// Font
+
+* {
+  font-family: 'Roboto', sans-serif !important;
+  &:hover {
+    text-decoration: none;
+  }
 }

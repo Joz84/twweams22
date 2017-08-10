@@ -18,7 +18,7 @@ class ChannelsController < ApplicationController
     cookies.signed[:user_id] = current_user.id
     cookies.signed[:channel_id] = params[:id]
 
-    @iframely = Iframely::Requester.new api_key: ENV['IFRAMELY_KEY']  
+    @iframely = Iframely::Requester.new api_key: ENV['IFRAMELY_KEY']
   end
 
   def new

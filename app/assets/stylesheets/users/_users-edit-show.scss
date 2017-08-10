@@ -1,0 +1,246 @@
+
+#profile-show, #profile-edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width:100vw;
+  margin:0;
+  padding:0;
+
+  .persos-info-container {
+    display: flex;
+    flex-direction: row;
+    width:100vw;
+
+    .profile-left {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      text-align: right;
+      padding:1em 1.5em;
+      width:45vw;
+      background-image: image_url('elements/profil-bg.png');
+      background-size: 20em;
+      background-repeat: no-repeat;
+      -webkit-box-shadow: 7px 7px 35px -18px rgba(0,0,0,0.75);
+      -moz-box-shadow: 7px 7px 35px -18px rgba(0,0,0,0.75);
+      box-shadow: 7px 7px 35px -18px rgba(0,0,0,0.75);
+      z-index: 5;
+      p {
+        margin:0;
+      }
+      h1 {
+        margin:0;
+        color:$dark-blue;
+        font-size: 1.6em;
+        width:8em;
+      }
+      #info-list{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        #birthday {
+          color:$pink;
+          font-size: 1.2em;
+          margin-top: -0.5em;
+          letter-spacing: 1px;
+        }
+        #location {
+          margin-top: -1.5em;
+          color:$dark-blue;
+        }
+        #messenger-btn, .return-btn{
+          padding:0.3em 0.7em;
+          margin-top:6em;
+          font-size: 1em;
+          background-color: $dark-blue;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        .color-men {
+          color:#e2e4e6 !important;
+        }
+        .color-women {
+          color:#f9ebf3 !important;
+        }
+      }
+
+      #profile-picture {
+        width:10em;
+        height:11em;
+        text-align: center;
+        background-color: white;
+        box-shadow: 1px 1px 10px 3px rgba($gray,0.1);
+        padding:0.5em 0.5em 1em;
+        transform: rotateZ(-6deg);
+        z-index: 9999;
+        margin:1em -2em 0 0;
+        .avatar-profile {
+          width:9em;
+        }
+        #scotch {
+          position: absolute;
+          top:-0.9em;
+          left:40%;
+          width:2.5em;
+        }
+      }
+      #birthday-icon {
+          position: absolute;
+          transform: rotateZ(4deg) scale(0.7);
+          margin-top: 2.4em;
+          padding-right: 3.2em;
+      }
+    }
+    .profile-right {
+      display: flex;
+      flex-direction: column;
+      width:55vw;
+      color:$dark-blue;
+
+      // #buttons {
+      //   display: flex;
+      //   justify-content: flex-end;
+      //   flex-direction: row;
+      //   align-items: center;
+      //   margin-bottom: 1em;
+      #buttons {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom:1em;
+        width:100%;
+
+        .submit-btn {
+          input{
+            background-color: $dark-blue;
+            border:1px solid $dark-blue;
+            color:$grey;
+            border-radius: 0;
+            margin:0 0.3em;
+          }
+        }
+        .return-btn {
+          a {
+            padding:6.5px 12px;
+            border:1px solid $dark-blue;
+            background-color: $dark-blue;
+            color:$grey;
+            outline: none;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+      @keyframes border {
+        0%{
+          border:2px solid transparent;
+          border-bottom: 2px solid rgba($dark-blue,0.7);
+        }
+        33%{
+          border:2px solid transparent;
+          border-bottom: 2px solid rgba($dark-blue,0.7);
+          border-left: 2px solid rgba($dark-blue,0.7);
+
+        }
+        66%{
+          border:2px solid transparent;
+          border-bottom: 2px solid rgba($dark-blue,0.7);
+          border-left: 2px solid rgba($dark-blue,0.7);
+          border-top: 2px solid rgba($dark-blue,0.7);
+        }
+        100%{
+          border:2px solid transparent;
+          border-bottom: 2px solid rgba($dark-blue,0.7);
+          border-left: 2px solid rgba($dark-blue,0.7);
+          border-top: 2px solid rgba($dark-blue,0.7);
+          border-right: 2px solid rgba($dark-blue,0.7);
+        }
+      }
+
+      .password-inputs {
+        display: flex;
+        flex-direction: row;
+        margin-top: 1em;
+        justify-content: space-between;
+        width:90%;
+
+        input{
+          background-color: transparent;
+          border:2px solid transparent;
+          border-bottom: 2px solid rgba($dark-blue,0.7);
+          box-shadow:none;
+          &:focus {
+            animation:border 0.6s forwards;
+          }
+        }
+      }
+
+      .favorite-inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin:0.3em 0 0;
+
+        .form-group {
+          margin:0;
+        }
+
+        input,textarea{
+          width:40vw;
+          max-width: 40vw;
+          font-weight: 400;
+          font-style: normal;
+          background-color: transparent;
+          border:2px solid transparent;
+          border-bottom: 2px solid rgba($dark-blue,0.7);
+          box-shadow:none;
+          -webkit-transition: 0.3s ease-in;
+          -o-transition: 0.3s ease-in;
+          transition: 0.3s ease-in;
+          &:focus {
+            animation:border 0.6s forwards;
+          }
+        }
+        h2, p {
+          width:auto;
+          margin-left: 1em;
+        }
+      }
+      h2 {
+        font-size: 1em;
+        font-weight: bold;
+        margin:0.5em 0;
+        text-align: left;
+      }
+      p {
+        width:65%;
+        font-size: 0.8em;
+        text-align: justify;
+        margin-bottom: 0.2em;
+      }
+      #profile-edit.profile-right-top{
+        padding:0.5em 1.5em !important;
+      }
+
+      .profile-right-top {
+        padding:0.3em 1.5em 0;
+        min-height:40%;
+        background-color: #f2eddb;
+      }
+      .profile-right-bottom {
+        height:100%;
+        padding:0.3em 1.5em 0;
+      }
+    }
+  }
+  #map {
+    height:57.03vh;
+    width:100vw;
+  }
+}
