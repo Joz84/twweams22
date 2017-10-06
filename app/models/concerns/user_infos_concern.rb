@@ -21,7 +21,7 @@ module UserInfosConcern
           ignoring: :accents
 
         def alias
-          self.alias || "#{self.first_name} #{self.last_name}"
+          "#{self.first_name} #{self.last_name}"
         end
 
         def friends
