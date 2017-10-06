@@ -13,9 +13,9 @@ Channel.destroy_all
 c1 = Channel.create(name: 'general')
 
 u0 =  User.create(email: 'a@gmail.com', password: 'azerty', first_name: 'Super', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Bordeaux', country: 'FRANCE', last_channel_id: Channel.first)
-u0 =  User.create(email: 'm@gmail.com', password: 'azerty', first_name: 'Mega', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Bordeaux', country: 'FRANCE', last_channel_id: Channel.first)
-u0 =  User.create(email: 'g@gmail.com', password: 'azerty', first_name: 'Genial', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Bordeaux', country: 'FRANCE', last_channel_id: Channel.first)
-u0 =  User.create(email: 'e@gmail.com', password: 'azerty', first_name: 'Extra', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Bordeaux', country: 'FRANCE', last_channel_id: Channel.first)
+u0 =  User.create(email: 'm@gmail.com', password: 'azerty', first_name: 'Mega', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Lyon', country: 'FRANCE', last_channel_id: Channel.first)
+u0 =  User.create(email: 'g@gmail.com', password: 'azerty', first_name: 'Genial', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'La Rochelle', country: 'FRANCE', last_channel_id: Channel.first)
+u0 =  User.create(email: 'e@gmail.com', password: 'azerty', first_name: 'Extra', last_name: 'Admin', birthday: Date.today, gender: 'male', city: 'Toulouse', country: 'FRANCE', last_channel_id: Channel.first)
 
 User.all.each do |user|
   Subscription.create(user: user, channel: c1)
