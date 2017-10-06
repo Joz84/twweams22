@@ -5,7 +5,7 @@
     <%= image_tag "logo-01.png" %>
   <% end %>
   <% if user_signed_in? && controller_name == 'users' && action_name == 'index' %>
-    <div id="form-navbar">
+    <!-- <div id="form-navbar">
       <%= simple_form_for :selection, url: selection_path, method: :get do |f| %>
         <div id="date-select">
           <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false, selected: @birthday %>
@@ -17,7 +17,7 @@
         </div>
         <h1 id="find-btn"><%= f.button :submit, 'FIND' %></h1>
       <% end %>
-    </div>
+    </div> -->
   <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -25,17 +25,17 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <%= link_to channel_path(Channel.first), class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <%= image_tag 'elements/Courrier-01.png', alt: 'menu-item', class: "courrier" %>
-          <div class="badge badge-blue">3</div>
+          <!-- <div class="badge badge-blue">3</div> -->
         </div>
       <% end %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "elements/man.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to current_user do %>
