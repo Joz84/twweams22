@@ -5,7 +5,15 @@ class ChannelsController < ApplicationController
   before_action :find_users, only:          [:new,  :edit, :update]
 
   def show
-    @subscription = Subscription.find_by(user: current_user, channel: @channel)
+    if @subscription
+      @subscription = Subscription.find_by(user: current_user, channel: @channel)
+    else
+      Subscription.create(channel: Channel.first, user: current_user)
+      @channel = current_user.last_channel_id ? Channel.find(current_user.last_channel_id) : Channel.first
+      @subscription = Subscription.find_by(user: current_user, channel: @channel)
+      # redirect_to @channel
+    end
+
     @new_messages_limit = @subscription.new_messages_limit
     unless @channel.messages.empty?
       @subscription.update( last_message_id: @channel.messages.last.id)
@@ -29,7 +37,7 @@ class ChannelsController < ApplicationController
 
   def first_connection
     @first_subscription = Subscription.create(channel: Channel.first, user: current_user)
-    @channel =  current_user.last_channel_id ? Channel.find(current_user.last_channel_id) : Channel.first
+    @channel = current_user.last_channel_id ? Channel.find(current_user.last_channel_id) : Channel.first
     redirect_to @channel
     # @first_subscription = Subscription.new(channel: Channel.first, user: current_user)
     # if @first_subscription.save
@@ -87,7 +95,7 @@ class ChannelsController < ApplicationController
   end
 
   def find_admin
-    @admin = @channel.subscriptions.find_by(user: current_user).admin
+    @admin = @channel.subscriptions.find_by(user: current_user)
   end
 
   def find_users

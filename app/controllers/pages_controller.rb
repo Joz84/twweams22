@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :birthday]
 
   def home
-    @channel = Channel.first
   end
 
   def birthday
