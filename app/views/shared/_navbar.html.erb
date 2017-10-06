@@ -1,5 +1,5 @@
 
-<div class="navbar-wagon <%= (!user_signed_in?) || (action_name != 'index') ? 'padding' : nil %>">
+<div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo-01.png" %>
@@ -66,10 +66,10 @@
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg" id="navbar-smartphone">
-    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+    <%= link_to channel_path(Channel.first), class: "navbar-wagon-item navbar-wagon-link" do %>
       <div class="badge-container">
         <%= image_tag 'elements/Courrier-01.png', alt: 'menu-item', class: "courrier" %>
-        <div class="badge badge-blue">3</div>
+        <!-- <div class="badge badge-blue">3</div> -->
       </div>
     <% end %>
     <div class="dropdown">
