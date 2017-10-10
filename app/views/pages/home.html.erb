@@ -1,12 +1,14 @@
 <div id="pages-home" class="slider">
   <div id="birthday-select">
-      <h1>Nombre de twweams nés depuis le chargement de la page</h1>
-      <div id="nbr-twweams"></div>
-      <h2> Enter your birthday </h2>
+    <h2> Enter your birthday </h2>
     <%= simple_form_for :birthday, url: birthday_path, method: :get do |f| %>
       <%= f.input :birthdate, as: :date, start_year: Date.today.year - 110, end_year: Date.today.year, label: false %>
       <%= f.button :submit, 'Go !', id:"go-btn" %>
     <% end %>
+
+    <h1>Twweams nés depuis le chargement de la page </h1>
+    <div id="nbr-twweams"></div>
+
   </div>
 </div>
 

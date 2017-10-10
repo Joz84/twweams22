@@ -6,7 +6,7 @@
   <% end %>
   <ul>
     <% @subscriptions.each do |subscription| %>
-      <% if !current_user?(subscription.user) %>
+      <% if !current_user?(subscription.user) && (current_user.birthday == subscription.user.birthday) %>
         <li><%= subscription.user.alias %></li>
       <% end %>
     <% end %>
