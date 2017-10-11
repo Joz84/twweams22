@@ -1,16 +1,23 @@
 <div class="col-md-2" id="channel-list">
-  <p><%= link_to "Create a new channel", new_channel_path %></p>
-  <h3><%= @channel.default_name(current_user) %></h3>
-  <% if @channel.one_to_one? || @admin %>
+  <p class="btn-create"><%= link_to "Create a new channel", new_channel_path %></p>
+  <h1><%= @channel.default_name(current_user) %></h1>
+  <!-- <% if @channel.one_to_one? || @admin %>
     <%= link_to "edit", edit_channel_path(@channel) %>
-  <% end %>
-  <ul>
-    <% @subscriptions.each do |subscription| %>
-      <% if !current_user?(subscription.user) && (current_user.birthday == subscription.user.birthday) %>
-        <li><%= subscription.user.alias %></li>
+  <% end %> -->
+  <ul class="channels-users">
+    <li>
+      <% @subscriptions.each do |subscription| %>
+        <%= link_to(@user) do %>
+          <% if !current_user?(subscription.user) && (current_user.birthday == subscription.user.birthday) %>
+            <li><%= subscription.user.alias %></li>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
+    </li>
   </ul>
+
+  <h2> channel list </h2>
+
   <ul>
     <% current_user.channels.each do |channel| %>
       <li>
