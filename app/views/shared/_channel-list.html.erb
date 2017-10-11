@@ -1,6 +1,8 @@
 <div class="col-md-2" id="channel-list">
   <p class="btn-create"><%= link_to "Create a new channel", new_channel_path %></p>
+
   <h1><%= @channel.default_name(current_user) %></h1>
+
   <!-- <% if @channel.one_to_one? || @admin %>
     <%= link_to "edit", edit_channel_path(@channel) %>
   <% end %> -->
