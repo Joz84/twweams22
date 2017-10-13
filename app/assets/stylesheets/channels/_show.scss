@@ -12,14 +12,34 @@
   margin:10px 0;
 }
 
-#messages-table li {
-  border-bottom: 1px solid rgba(black,0.1);
-  padding:0.5em;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  &:hover{
-    background-color: rgba(grey,0.06);
+#messages-table {
+    padding: 0;
+    margin-top: 1em;
+    li {
+    box-shadow: 4px 2px 15px -6px black;
+    padding:0.5em;
+    margin:0.8em auto;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3;
+    list-style-type: none;
+    &:hover{
+      background-color: rgba(grey,0.06);
+    }
+  }
+}
+
+#delete-btn {
+  margin-left: 61vw;
+  a {
+    text-decoration: none;
+    color:$grey;
+    background-color: $dark-blue;
+    width:fit-content;
+    padding:0.3em 0.6em;
+    &:hover {
+      color:$blue;
+    }
   }
 }
 
@@ -29,18 +49,52 @@
 #message-box {
   padding-left:15em;
 }
-
+#message-container {
+  margin:0;
+}
 #channel-list {
   position: fixed;
-  left:0;
+  top:5em;
+  left:1em;
   z-index: 9999;
+
+    li {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+    }
+
+
+  .btn-create a{
+    text-decoration: none;
+    color:$grey;
+    background-color: $dark-blue;
+    width:fit-content;
+    padding:0.7em 1em;
+
+    &:hover {
+      color:$blue;
+    }
+  }
 }
 
 @media screen and (max-width:640px){
   #channel-list {
     position:relative !important;
+    width:90vw;
+    padding:0;
+  }
+  #message-infos {
+    p {
+      display: none;
+    }
   }
   #message-box {
     padding-left: 1em !important;
+    margin-top: 10em;
+  }
+  #delete-btn {
+    margin-left: 75vw;
   }
 }

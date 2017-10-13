@@ -1,30 +1,32 @@
 <div class="col-md-10" id="message-box">
   <ul id="messages-table">
     <% @channel.messages.each_with_index do |message, index| %>
-      <% if index == @new_messages_limit %>
-        New message <hr>
-      <% end %>
-      <li id="message-container">
-        <div id="message-infos">
-          <h1><%= message.user.alias %></h1>
-          <p> | <%= message.updated_at.strftime("%d/%m/%y à %Hh%M")%></p>
-        </div>
-        <div class="content">
-          <%= Rinku.auto_link(message.content, :all, 'target="_blank"').html_safe %>
-        </div>
-        <div class="iframe">
-          <%= @iframely.get_oembed_json(message.first_url)["html"].html_safe if @iframely.get_oembed_json(message.first_url)["html"]  %>
-        </div>
-      </li>
-      <div id="delete-btn">
-        <% if current_user?(message.user) %>
-            <%= link_to "delete", [@channel, message], method: :delete, data: {confirm: "Are you sure! Do you want delete this post"}  %>
+      <% if current_user.birthday == message.user.birthday %>
+        <% if index == @new_messages_limit %>
+          New message <hr>
         <% end %>
-      </div>
+        <li id="message-container">
+          <div id="message-infos">
+            <h3><%= message.user.alias %></h3>
+            <p> | <%= message.updated_at.strftime("%d/%m/%y à %Hh%M")%></p>
+          </div>
+          <div class="content">
+            <%= Rinku.auto_link(message.content, :all, 'target="_blank"').html_safe %>
+          </div>
+          <div class="iframe">
+            <%= @iframely.get_oembed_json(message.first_url)["html"].html_safe if @iframely.get_oembed_json(message.first_url)["html"]  %>
+          </div>
+        </li>
+        <div id="delete-btn">
+          <% if current_user?(message.user) %>
+              <%= link_to "delete", [@channel, message], method: :delete, data: {confirm: "Are you sure! Do you want delete this post"}  %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </ul>
   <%= simple_form_for [@channel, @message], remote: true do |f| %>
-    <%= f.input :content, label: false, id: "chat-text" %>
+    <%= f.input :content, label: false, placeholder: 'Échangez, découvrez et proposez une rencontre...', id: "chat-text" %>
     <%= f.button :submit, 'Send', id:"submit-btn" %>
   <% end %>
 </div>

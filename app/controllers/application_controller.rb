@@ -4,6 +4,19 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :define_channels_users
 
+  def google_hash(users)
+    @hash = Gmaps4rails.build_markers(users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.picture({
+        "url": view_context.image_path("elements/Point-#{user.male? ? 'bleu' : 'rose'}-01.png"),
+        "width":  24,
+        "height": 45
+      })
+      marker.infowindow render_to_string(partial: "/users/map_box", locals: { user: user })
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -16,5 +29,8 @@ class ApplicationController < ActionController::Base
   def define_channels_users
     gon.tab = current_user.channels.map(&:id) if current_user
   end
+
+  private
+
 
 end

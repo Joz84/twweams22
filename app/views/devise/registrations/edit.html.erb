@@ -4,17 +4,17 @@
 
       <div id="profile-picture">
         <%= image_tag 'elements/scotch.png', alt: 'scotch', id: "scotch"%>
-        <%= link_to_edit(@user, default_image_tag( @user )) %>
+        <%= link_to_edit(resource, default_image_tag( resource )) %>
       </div>
       <div id="birthday-icon">
-        <%= image_tag date_photo_path(@user), alt: 'birthday-icon' %>
+        <%= image_tag date_photo_path(resource), alt: 'birthday-icon' %>
       </div>
 
       <div id="info-list">
-        <h1 class="playfair"><%= @user.full_name %></h1><br>
-        <p id="birthday"><%= @user.birthday.strftime("%d/%m/%y") %></p><br>
-        <p id="location"><%= @user.location %></p>
-        <%= link_to 'Messenger', root_path, id: 'messenger-btn', class: gender_type(@user) %>
+        <h1 class="playfair"><%= resource.full_name %></h1><br>
+        <p id="birthday"><%= resource.birthday.strftime("%d/%m/%y") %></p><br>
+        <p id="location"><%= resource.location %></p>
+        <%= link_to 'Messenger', root_path, id: 'messenger-btn', class: gender_type(resource) %>
       </div>
     </div>
     <div class="profile-right">
@@ -22,7 +22,7 @@
         <%= f.error_notification %>
         <div class="profile-right-top">
           <div class="favorite-inputs">
-            <h2>About <%= @user.first_name %></h2>
+            <h2>About <%= resource.first_name %></h2>
             <%= f.input :bio, label: false, :input_html => {rows: 2}, placeholder: 'Ex: Je suis génial !' %>
           </div>
         </div>
@@ -50,7 +50,7 @@
               <%= link_to 'Retour au profil', current_user %>
             </div>
             <div class="submit-btn">
-              <%= f.button :submit, "Update", class: @user.gender == 'male' ? 'color-men' : 'color-women' %>
+              <%= f.button :submit, "Update", class: resource.gender == 'male' ? 'color-men' : 'color-women' %>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
   <div id="separate-bar">
     <%= image_tag 'elements/picto carte-01.png', alt: 'map' %>
   </div>
-  <div id="map"></div>
+  <div id="map" class="map-edit"></div>
 </div>
 
 <%= render 'shared/map' %>

@@ -20,27 +20,23 @@
   <div id="users-container">
     <div id="users-list">
       <% @users.each do |user| %>
-        <%= link_to user do %>
-          <div class="profile-picture">
-            <%= user.gender == 'male' ? (image_tag 'elements/Avatar bleu-01.png', alt: 'avatar', id: "avatar") : (image_tag 'elements/Avatar rose-01.png', alt: 'avatar', id: "avatar") %>
-            <p class="username"><%= user.full_name %></p>
-            <p class="location"><%= user.location %></p>
-            <div class="description">
-              <%= user.bio %>
+        <div class="profile-picture">
+          <%= user.gender == 'male' ? (image_tag 'elements/Avatar bleu-01.png', alt: 'avatar', id: "avatar") : (image_tag 'elements/Avatar rose-01.png', alt: 'avatar', id: "avatar") %>
+          <p class="username"><%= user.full_name %></p>
+          <p class="location"><%= user.location %></p>
+
+          <% if user.gender? %>
+            <div class="add-line">
+              <%= link_to user do %>
+                <%= user.gender == 'male' ? (image_tag 'elements/bouton-plus-bleu.png', alt: 'btn-plus-bleu',class:'add-btn') : (image_tag 'elements/bouton-plus-rose.png',alt: 'btn-plus-rose',class:'add-btn') %>
+              <% end %>
             </div>
-            <% if user.gender? %>
-              <div class="add-line">
-                <%= link_to root_path do %>
-                  <%= user.gender == 'male' ? (image_tag 'elements/bouton-plus-bleu.png', alt: 'btn-plus-bleu',class:'add-btn') : (image_tag 'elements/bouton-plus-rose.png',alt: 'btn-plus-rose',class:'add-btn') %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
     <div id="map-container">
-      <%= image_tag 'elements/picto carte-01.png', alt: 'map', id: 'icone-world' %>
+      <!-- <%= image_tag 'elements/picto carte-01.png', alt: 'map', id: 'icone-world' %> -->
       <div id="map">
       </div>
     </div>
