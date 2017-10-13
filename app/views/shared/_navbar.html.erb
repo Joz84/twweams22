@@ -39,17 +39,17 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to current_user do %>
-                <i class="fa fa-users"></i> <%= t(".profile", default: "Profile") %>
+                <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-pencil"></i> <%= t(".profile", default: "Edit Profile") %>
+                <%= t(".profile", default: "Edit Profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -65,32 +65,42 @@
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
+
+
   <div class="navbar-wagon-item hidden-md hidden-lg" id="navbar-smartphone">
-    <%= link_to channel_path(Channel.first), class: "navbar-wagon-item navbar-wagon-link" do %>
-      <div class="badge-container">
-        <%= image_tag 'elements/Courrier-01.png', alt: 'menu-item', class: "courrier" %>
-        <!-- <div class="badge badge-blue">3</div> -->
+
+    <% if user_signed_in? %>
+
+      <%= link_to channel_path(Channel.first), class: "navbar-wagon-item navbar-wagon-link" do %>
+        <div class="badge-container">
+          <%= image_tag 'elements/Courrier-01.png', alt: 'menu-item', class: "courrier" %>
+          <!-- <div class="badge badge-blue">3</div> -->
+        </div>
+      <% end %>
+      <div class="dropdown">
+        <%= image_tag 'elements/Menu-01.png', alt: 'dropdown', id:'dropdown-bars', class: 'dropdown-toggle', data: {toggle: 'dropdown'} %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to current_user do %>
+              <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_user_registration_path do %>
+              <%= t(".profile", default: "Edit Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
       </div>
-    <% end %>
-    <div class="dropdown">
-      <%= image_tag 'elements/Menu-01.png', alt: 'dropdown', id:'dropdown-bars', class: 'dropdown-toggle', data: {toggle: 'dropdown'} %>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li>
-          <%= link_to current_user do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to edit_user_registration_path do %>
-            <i class="fa fa-pencil"></i> <%= t(".profile", default: "Edit Profile") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-          <% end %>
-        </li>
-      </ul>
-    </div>
+      <% else %>
+
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <% end %>
   </div>
 </div>
