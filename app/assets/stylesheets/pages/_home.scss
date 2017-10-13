@@ -9,34 +9,60 @@
   align-items: center;
   height:93vh;
   width:100vw;
-  background-image: image-url('bg-home-02.jpg');
-  background-size: cover;
-  background-position: bottom;
+  background-image: image-url('bg-home-01.png');
+  background-size: 72%;
+  background-position: 30% center;
   background-repeat: no-repeat;
+  font-family: 'Roboto';
+  font-weight: 100;
 
   #birthday-select {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width:50%;
+    margin-bottom: 10em;
 
     select {
       background-color: $grey;
     }
     h1 {
-      margin-top: 2em;
-      color:$grey;
-      font-size: 30px;
-    }
-    #nbr-twweams {
+      margin-top: 1.6em;
+      color:$dark-blue;
       font-size: 2em;
-      margin:0.7em 0;
+      width:60vw;
+      margin: auto;
+    }
+    .form-container {
+      min-width: 16em;
+      margin:auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .form {
+        background-color: rgba($dark-blue,0.57);
+        padding:1em 2.3em;
+        width:100%;
+        margin:auto;
+      }
+    }
+
+    #nbr-twweams {
+      font-size: 1.4em;
+      margin:0.7em auto;
       color:$grey;
+      border-radius: 100px;
+      background-color: $blue;
+      padding:0.4em 0.6em;
+      width: fit-content;
     }
     h2 {
+      margin: 2em auto 0;
       font-size: 1.6em;
       color:$grey;
+      background-color: $dark-blue;
+      padding:0.4em 1.5em;
+      width:100%;
     }
 
     #go-btn {
@@ -48,7 +74,6 @@
       -o-transition: 0.4s ease-in-out;
       transition: 0.4s ease-in-out;
       &:hover {
-        padding:0.5em 5.5em;
         font-weight: bold;
         background-color: $grey;
         color:$blue;
