@@ -3,9 +3,9 @@
 
   <h1><%= @channel.default_name(current_user) %></h1>
 
-  <!-- <% if @channel.one_to_one? || @admin %>
+  <% if @channel.one_to_one? || @admin %>
     <%= link_to "edit", edit_channel_path(@channel) %>
-  <% end %> -->
+  <% end %>
   <ul class="channels-users">
     <li>
       <% @subscriptions.each do |subscription| %>

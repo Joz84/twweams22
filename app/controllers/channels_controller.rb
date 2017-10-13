@@ -5,14 +5,8 @@ class ChannelsController < ApplicationController
   before_action :find_users, only:          [:new,  :edit, :update]
 
   def show
-    if @subscription
-      @subscription = Subscription.find_by(user: current_user, channel: @channel)
-    else
-      Subscription.create(channel: Channel.first, user: current_user)
-      @channel = current_user.last_channel_id ? Channel.find(current_user.last_channel_id) : Channel.first
-      @subscription = Subscription.find_by(user: current_user, channel: @channel)
-      # redirect_to @channel
-    end
+    # @channel = current_user.last_channel_id ? Channel.find(current_user.last_channel_id) : Channel.first
+    @subscription = Subscription.find_or_create_by(user: current_user, channel: @channel)
 
     @new_messages_limit = @subscription.new_messages_limit
     unless @channel.messages.empty?
@@ -69,7 +63,6 @@ class ChannelsController < ApplicationController
     if @channel.update(channel_params)
       redirect_to edit_channel_path(@channel)
     else
-
       render :edit
     end
   end
