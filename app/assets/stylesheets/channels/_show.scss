@@ -58,13 +58,16 @@
   left:1em;
   z-index: 9999;
 
-    li {
-      list-style-type: none;
-    }
-    a {
-      text-decoration: none;
-    }
+  li {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+  }
 
+  h1 {
+    font-size: 1.8em;
+  }
 
   .btn-create a{
     text-decoration: none;

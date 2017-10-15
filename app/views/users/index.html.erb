@@ -21,7 +21,8 @@
     <div id="users-list">
       <% @users.each do |user| %>
         <div class="profile-picture">
-          <%= user.gender == 'male' ? (image_tag 'elements/Avatar bleu-01.png', alt: 'avatar', id: "avatar") : (image_tag 'elements/Avatar rose-01.png', alt: 'avatar', id: "avatar") %>
+          <%= default_image_tag(user) %>
+          <!-- <%= user.gender == 'male' ? (image_tag 'elements/Avatar bleu-01.png', alt: 'avatar', id: "avatar") : (image_tag 'elements/Avatar rose-01.png', alt: 'avatar', id: "avatar") %> -->
           <p class="username"><%= user.full_name %></p>
           <p class="location"><%= user.location %></p>
 

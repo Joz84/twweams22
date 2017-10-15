@@ -14,7 +14,7 @@
         <h1 class="playfair"><%= resource.full_name %></h1><br>
         <p id="birthday"><%= resource.birthday.strftime("%d/%m/%y") %></p><br>
         <p id="location"><%= resource.location %></p>
-        <%= link_to 'Messenger', root_path, id: 'messenger-btn', class: gender_type(resource) %>
+        <%= link_to 'Change profile picture', root_path, id: 'change-profile-btn', class: gender_type(resource) %>
       </div>
     </div>
     <div class="profile-right">
