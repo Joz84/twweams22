@@ -3,28 +3,28 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
       <div id="name">
-        <%= f.input :first_name, autofocus: true, required: true %>
-        <%= f.input :last_name, required: true %>
+        <%= f.input :first_name, autofocus: true, required: true, label: false, placeholder: "First name" %>
+        <%= f.input :last_name, required: true, label: false, placeholder: "Last name" %>
       </div>
 
       <div id="location">
-        <%= f.input :city, required: true %>
-        <%= f.input :country, required: true %>
+        <%= f.input :city, required: true, label: false, placeholder: "City" %>
+        <%= f.input :country, required: true, label: false, placeholder: "Country" %>
       </div>
       <div id="more-info">
-        <%= f.input :email, required: true %>
+        <%= f.input :email, required: true, label: false, placeholder: "E-mail" %>
         <%= f.input :gender, collection: User.genders.keys, as: :radio_buttons, item_label_class: "radio-inline", item_wrapper_tag: false, label: false %>
       </div>
       <div id="password">
-        <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true %>
+        <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false, placeholder: "Password" %>
+        <%= f.input :password_confirmation, required: true, label: false, placeholder: "Password confirmation" %>
       </div>
-      <%= f.input :bio, placeholder: 'Ex: Je suis génial !' %>
+      <%= f.input :bio, label: false, placeholder: 'Biographie' %>
 
       <div id="favorite">
-        <%= f.input :book, placeholder: "Ex: Le crime de l'Orient Express, Titeuf, ..." %>
-        <%= f.input :movie, placeholder: 'Ex: Harry Potter, Lord Of The Rings, ...' %>
-        <%= f.input :music, placeholder: 'Ex: Daft Punk, RadioHead, ...' %>
+        <%= f.input :book, label: false, placeholder: "Favorite book" %>
+        <%= f.input :movie, label: false, placeholder: 'Favorite movie' %>
+        <%= f.input :music, label: false, placeholder: 'Favorite music' %>
       </div>
 
       <div class="display-none">

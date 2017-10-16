@@ -1,16 +1,18 @@
 .users-new {
   height:93vh;
   // background-color:rgba($blue,0.1);
-  background-image: image-url('bg-home-01.png');
-  background-size: 72%;
-  background-position: 30% center;
+  background-image: image-url('bg-home-02.png');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   font-family: 'Roboto';
   font-weight: 100;
   padding-top: 1em;
 
-  #form {;
-    width: 60vw;
+  #form {
+    width: 40vw;
+    min-width: 25em;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
     background-color: rgba($grey,0.6);
@@ -19,32 +21,48 @@
     padding:2em 3em;
     margin:auto;
 
-    input {
-      font-size: 0.9em;
-      font-weight: lighter;
-      color:$dark-blue;
+    input,select,textarea {
+      border:none;
+      box-shadow: 1px 1px 10px 4px rgba(0,0,0,0.1);
+      &::placeholder {
+        font-size: 0.9em;
+        font-weight: lighter;
+        color:rgba($dark-blue,0.6);
+      }
+    }
+    input,select {
+      width: 9em;
     }
 
     label {
-      color:$dark-blue;
+      color:rgba($dark-blue,0.6);
     }
 
     .submit-btn {
-      width:20%;
+      width:fit-content;
       margin: auto;
       text-align: center;
       input {
-        background-color: $dark-blue;
+        background-color: $blue;
         color:$grey;
-        border:1px solid $dark-blue;
+        border:none;
+        box-shadow: 1px 1px 10px 4px rgba(0,0,0,0.1);
         -webkit-transition: 0.4s;
         -o-transition: 0.4s;
         transition: 0.4s;
         &:hover {
           background-color: $grey;
-          color:$dark-blue;
+          color:$blue;
         }
       }
+    }
+
+    #user_gender {
+      margin:0;
+    }
+
+    #user_email, #user_password {
+      width:100%;
     }
 
     #name,#location,#more-info,#password,#favorite {
@@ -56,5 +74,17 @@
     #password,#more-info {
       justify-content: space-around;
     }
+  }
+}
+
+@media screen and (max-width: 1340px){
+  #favorite {
+    flex-direction: column !important;
+  }
+}
+
+@media screen and (max-width: 780px){
+  #form {
+    width:85vw !important;
   }
 }
