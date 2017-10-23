@@ -23,7 +23,7 @@
         <div class="profile-right-top">
           <div class="favorite-inputs">
             <h2>About <%= resource.first_name %></h2>
-            <%= f.input :bio, label: false, :input_html => {rows: 2}, placeholder: 'Ex: Je suis génial !' %>
+            <%= f.input :bio, label: false, :input_html => {rows: 2}, placeholder: 'Ex: Je suis génial !' %><br>
           </div>
         </div>
         <div class="profile-right-bottom <%= @gender %>">
@@ -37,6 +37,10 @@
           <div class="favorite-inputs">
             <p>Favorite book : </p><b><em><%= f.input :book, label: false, placeholder: "Ex: Le crime de l'Orient Express, Titeuf, ..." %></em></b>
           </div>
+          <div class="favorite-inputs">
+            <p>Email : </p><%= f.input :email, label: false, placeholder: 'Ex: jeandupont@gmail.com' %>
+          </div>
+
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
