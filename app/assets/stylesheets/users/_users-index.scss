@@ -92,14 +92,13 @@
         margin-bottom: 1em;
         margin-left: 0.5em;
         width:10em;
-        height: 14em;
+        height:14em;
         text-align: center;
         background-color: white;
         box-shadow: 1px 1px 3px rgba($gray,0.1);
         padding:0.5em 0.5em 0.5em;
         z-index: 999;
-        #avatar {
-          padding-bottom: 0.5em;
+        .avatar-profile {
           width:9em;
         }
         p {

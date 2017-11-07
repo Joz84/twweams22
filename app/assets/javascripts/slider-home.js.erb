@@ -1,12 +1,12 @@
   var homepage = document.querySelector('.slider');
-  var number = document.querySelector('#nbr-twweams');
+  var img2 = "url(<%= asset_path 'bg-home-02.png' %>)";
+  var img3 = "url(<%= asset_path 'bg-home-03.png' %>)";
+  var img4 = "url(<%= asset_path 'bg-home-04.png' %>)";
 
-  var img2 = "url(<%= asset_path 'bg-home-01.png' %>)";
 
-  var array = [img2,img2,img2];
+  var array = [img4,img3,img2];
 
   var i = 0;
-  var x = 0;
 
   setInterval(function(){
     if (i==array.length) {
@@ -15,8 +15,3 @@
     homepage.style.backgroundImage = array[i];
     i++;
   },4500);
-
-  setInterval(function(){
-    x += 0.441;
-    number.innerHTML = Math.round(x);
-  },100)

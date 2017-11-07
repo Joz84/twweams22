@@ -7,4 +7,5 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require_tree .
+//= stub counter-home
 //= stub slider-home

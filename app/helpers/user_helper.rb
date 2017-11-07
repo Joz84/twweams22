@@ -8,7 +8,10 @@ module UserHelper
 
   def default_image_tag(user)
     if user.photo?
-      cl_image_tag user.photo.path, class: "avatar-profile", crop: :fill
+      cl_image_tag user.photo.path, class: "avatar-profile", crop: :fill, :transformation=>[
+        {:width=>500, :height=>500, :gravity=>"face", :crop=>"crop"},
+        {:width=>200, :crop=>"scale"}
+      ]
     else
       image_tag gender_photo_path(user), alt: 'avatar', class: "avatar-profile"
     end

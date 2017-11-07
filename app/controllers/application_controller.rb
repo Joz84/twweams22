@@ -30,7 +30,5 @@ class ApplicationController < ActionController::Base
     gon.tab = current_user.channels.map(&:id) if current_user
   end
 
-  private
-
 
 end
