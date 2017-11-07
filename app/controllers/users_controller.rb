@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def picture
+    current_user.photo = picture_params[:photo]
+    current_user.save
+    redirect_to edit_user_registration_path
+  end
 
   def index
     @birthday = session[:birthday] ? DateTime.parse(session[:birthday]) : current_user.birthday
@@ -12,4 +17,11 @@ class UsersController < ApplicationController
     # @user_coordinates = { lat: @user.latitude, lng: @user.longitude }
     google_hash([@user])
   end
+
+  private
+
+  def picture_params
+    params.require(:user).permit(:photo)
+  end
+
 end

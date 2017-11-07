@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   mount Attachinary::Engine => "/attachinary"
 
+  patch 'picture/:id', to: "users#picture", as: "picture"
+  put 'picture/:id', to: "users#picture"
+
 end

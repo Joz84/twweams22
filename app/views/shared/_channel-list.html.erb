@@ -8,13 +8,9 @@
   <% end %> -->
 
   <ul class="channels-users">
-    <li>
-      <% @subscriptions.each do |subscription| %>
-        <% if !current_user?(subscription.user) && (current_user.birthday == subscription.user.birthday) %>
-          <li><%= link_to subscription.user.alias %></li>
-        <% end %>
-      <% end %>
-    </li>
+    <% @subscriptions.each do |subscription| %>
+      <li><%= link_to subscription.user.alias, subscription.user %></li>
+    <% end %>
   </ul>
 
   <!-- <h2> channel list </h2> -->

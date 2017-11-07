@@ -14,7 +14,8 @@
         <h1 class="playfair"><%= resource.full_name %></h1><br>
         <p id="birthday"><%= resource.birthday.strftime("%d/%m/%y") %></p><br>
         <p id="location"><%= resource.location %></p>
-        <%= link_to 'Change profile picture', root_path, id: 'change-profile-btn', class: gender_type(resource) %>
+        <%#= link_to 'Change profile picture', root_path, id: 'change-profile-btn', class: gender_type(resource) %>
+        <button type="button" data-toggle="modal" id="change-profile-btn" class="btn <%= gender_type(resource) %>"  data-target="#myModal">Change profile picture</button>
       </div>
     </div>
     <div class="profile-right">
@@ -94,3 +95,32 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %> -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Your picture</h4>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for @user, method: :patch, url: picture_path(current_user) do |f| %>
+                <%= f.input :photo, as: :attachinary, label: false %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= f.button :submit, "change your picture", class: "btn btn-default" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
