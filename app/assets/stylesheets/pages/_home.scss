@@ -15,75 +15,76 @@
   background-repeat: no-repeat;
   font-family: 'Roboto';
   font-weight: 100;
+}
 
-  #birthday-select {
+.birthday-select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10em;
+  margin-top: 5em;
+
+  select {
+    background-color: $grey;
+  }
+  h1 {
+    color:$dark-blue;
+    font-size: 2em;
+    width:60vw;
+    margin: auto;
+  }
+  .form-container {
+    min-width: 18em;
+    margin:auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
-    margin-bottom: 10em;
-    margin-top: 5em;
-
-    select {
-      background-color: $grey;
-    }
-    h1 {
-      color:$dark-blue;
-      font-size: 2em;
-      width:60vw;
-      margin: auto;
-    }
-    .form-container {
-      min-width: 18em;
-      margin:auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      .form {
-        background-color: rgba($dark-blue,0.57);
-        padding:1em 1.8em;
-        width:100%;
-        margin:auto;
-        .form-inline {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-        }
-      }
-    }
-
-    #nbr-twweams {
-      font-size: 1.4em;
-      margin:0.7em auto;
-      color:$grey;
-      border-radius: 100px;
-      background-color: $blue;
-      padding:0.4em 0.6em;
-      width: fit-content;
-    }
-    h2 {
-      margin: 2em auto 0;
-      font-size: 1.6em;
-      color:$grey;
-      background-color: $dark-blue;
-      padding:0.4em 1.5em;
+    .form {
+      background-color: rgba($dark-blue,0.57);
+      padding:1em 1.8em;
       width:100%;
-    }
-
-    #go-btn {
-      padding:0.5em 1em;
-      background-color: $blue;
-      color:$grey;
-      border:1px solid transparent;
-      -webkit-transition: 0.4s ease-in-out;
-      -o-transition: 0.4s ease-in-out;
-      transition: 0.4s ease-in-out;
-      &:hover {
-        font-weight: bold;
-        background-color: $grey;
-        color:$blue;
-        border:1px solid $blue;
+      margin:auto;
+      .form-inline {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
       }
     }
   }
+
+  #nbr-twweams {
+    font-size: 1.4em;
+    margin:0.7em auto;
+    color:$grey;
+    border-radius: 100px;
+    background-color: $blue;
+    padding:0.4em 0.6em;
+    width: fit-content;
+  }
+  h2 {
+    margin: 2em auto 0;
+    font-size: 1.6em;
+    color:$grey;
+    background-color: $dark-blue;
+    padding:0.4em 1.5em;
+    width:100%;
+  }
+
+  #go-btn {
+    padding:0.5em 1em;
+    background-color: $blue;
+    color:$grey;
+    border:1px solid transparent;
+    -webkit-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    &:hover {
+      font-weight: bold;
+      background-color: $grey;
+      color:$blue;
+      border:1px solid $blue;
+    }
+  }
 }
+

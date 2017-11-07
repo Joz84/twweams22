@@ -4,10 +4,21 @@
  * Feel free to change them and create your own
  * ------------------------------------- */
 
+.margin-bottom-lg {
+  margin-bottom: 50px;
+}
+
 // Paddings
 .padded {
   padding-top: 5em;
   padding-bottom: 5em;
+}
+
+h2 {
+  color:$dark-blue;
+  font-size: 1.8em;
+  font-weight: lighter;
+  margin-bottom: 30px;
 }
 
 // separated bar
@@ -54,4 +65,7 @@
   &:hover {
     text-decoration: none;
   }
+}
+.width-auto {
+  width: auto !important;
 }

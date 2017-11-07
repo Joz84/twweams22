@@ -27,9 +27,21 @@
         <%= f.input :music, label: false, placeholder: 'Favorite music' %>
       </div>
 
-      <div class="display-none">
-        <%= f.input :birthday, start_year: Date.today.year - 110, end_year: Date.today.year, selected: DateTime.parse(session[:birthday]) %>
-      </div>
+      <% if session[:birthday].nil? %>
+        <%= f.input :birthday,
+                    start_year: Date.today.year - 110,
+                    end_year: Date.today.year,
+                    as: :date
+        %>
+      <% else %>
+        <div class="display-none">
+          <%= f.input :birthday,
+                      start_year: Date.today.year - 110,
+                      end_year: Date.today.year,
+                      selected: DateTime.parse(session[:birthday].to_s)
+          %>
+        </div>
+      <% end %>
       <div class="photo">
         <%= f.input :photo, as: :attachinary %>
       </div>
