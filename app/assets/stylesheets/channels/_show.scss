@@ -105,6 +105,7 @@
 
 .wrapper-messenger {
   background-color: $grey;
-  height: calc(100vh - 50px);
-  background-size: cover !important;
+  min-height: calc(100vh - 50px);
+  background-size: contain !important;
+  background-repeat: no-repeat;
 }
