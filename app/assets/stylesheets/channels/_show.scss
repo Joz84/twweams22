@@ -51,6 +51,7 @@
 }
 #message-container {
   margin:0;
+  background-color: white;
 }
 #channel-list {
   position: fixed;
@@ -100,4 +101,10 @@
   #delete-btn {
     margin-left: 75vw;
   }
+}
+
+.wrapper-messenger {
+  background-color: $grey;
+  height: calc(100vh - 50px);
+  background-size: cover !important;
 }

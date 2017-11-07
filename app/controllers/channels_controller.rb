@@ -84,7 +84,14 @@ class ChannelsController < ApplicationController
   end
 
   def find_subscriptions
-    @subscriptions = !@channel.one_to_one? ? @channel.subscriptions : []
+    if !@channel.one_to_one?
+      @subscriptions = @channel.subscriptions.select do |subscription|
+        current_user != subscription.user &&
+        subscription.user.birthday.to_date == current_user.birthday.to_date
+      end
+    else
+      @subscriptions = []
+    end
   end
 
   def find_admin
