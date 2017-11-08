@@ -31,7 +31,7 @@ class User < ApplicationRecord
     #   users = User.where(birthday: birthday).female.near(self.location, length*20000)
     # end
     # users
-    all.select do |user|
+    User.all.select do |user|
       birthday.strftime("%m-%d") == user.birthday.strftime("%m-%d")
     end
   end
