@@ -9,11 +9,11 @@
 
       <div id="location">
         <%= f.input :city, required: true, label: false, placeholder: "City" %>
-        <%= f.input :country, required: true, label: false, placeholder: "Country" %>
+        <%= f.input :country, required: true, label: false, prompt: "Country" %>
       </div>
       <div id="more-info">
         <%= f.input :email, required: true, label: false, placeholder: "E-mail" %>
-        <%= f.input :gender, collection: User.genders.keys, as: :radio_buttons, item_label_class: "radio-inline", item_wrapper_tag: false, label: false %>
+        <%= f.input :gender, collection: User.genders.keys, as: :radio_buttons, item_label_class: "radio-inline", item_wrapper_tag: false, label: false%>
       </div>
       <div id="password">
         <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false, placeholder: "Password" %>
