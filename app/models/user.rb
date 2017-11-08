@@ -58,7 +58,7 @@ class User < ApplicationRecord
     # first_day = '2004-01-01'.to_datetime.to_i
     # last_day  = '2004-12-31'.to_datetime.to_i
     # days = (first_day .. last_day).step(1.day).map{ |day| Time.at(day).strftime("%m%d") }
-    all.map{ |user| user.birthday.strftime("%m%d") }
+    all.map{ |user| user.birthday.strftime("%m-%d") }
        .group_by{ |day| day }
        .map{ |k, v| {k => v.count} }
   end
@@ -68,6 +68,12 @@ class User < ApplicationRecord
        .flatten
        .select{|num| num > 1}
        .sum
+  end
+
+  def self.find_day_month(month, day)
+    all.select do |user|
+      user.birthday.strftime("%m%d").to_i == "#{month}#{day}".to_i
+    end
   end
 
 end
