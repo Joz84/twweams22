@@ -23,14 +23,17 @@ class User < ApplicationRecord
 
 
   def selected_users(birthday, male, female, length)
-    if (male + female)%2 == 0
-      users = User.where(birthday: birthday).near(self.location, length*200)
-    elsif male == 1
-      users = User.where(birthday: birthday).male.near(self.location, length*200)
-    elsif female == 1
-      users = User.where(birthday: birthday).female.near(self.location, length*200)
+    # if (male + female)%2 == 0
+    #   users = User.where(birthday: birthday).near(self.location, length*20000)
+    # elsif male == 1
+    #   users = User.where(birthday: birthday).male.near(self.location, length*20000)
+    # elsif female == 1
+    #   users = User.where(birthday: birthday).female.near(self.location, length*20000)
+    # end
+    # users
+    all.select do |user|
+      birthday.strftime("%m-%d") == user.birthday.strftime("%m-%d")
     end
-    users
   end
 
   def full_name
