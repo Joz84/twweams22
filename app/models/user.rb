@@ -54,4 +54,20 @@ class User < ApplicationRecord
     DateTime.new(year, month, day, 0, 0, 0, "+00:00")
   end
 
+  def self.match_by_days
+    # first_day = '2004-01-01'.to_datetime.to_i
+    # last_day  = '2004-12-31'.to_datetime.to_i
+    # days = (first_day .. last_day).step(1.day).map{ |day| Time.at(day).strftime("%m%d") }
+    all.map{ |user| user.birthday.strftime("%m%d") }
+       .group_by{ |day| day }
+       .map{ |k, v| {k => v.count} }
+  end
+
+  def self.matchs_number
+    match_by_days.map{ |i| i.values }
+       .flatten
+       .select{|num| num > 1}
+       .sum
+  end
+
 end
