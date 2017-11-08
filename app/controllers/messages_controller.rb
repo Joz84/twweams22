@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
                                     msg_date: @message.updated_at.strftime("%d/%m/%y à %Hh%M"),
                                     alias: current_user.alias,
                                     user_id: current_user.id,
-                                    image_link: Rinku.auto_link(@message.content, :all).html_safe,
+                                    image_link: ((@message.content[0..6] == "http://") || (@message.content[0..7] == "https://")) ? ("<a href='"+@message.content+"'> See picture website </a>").html_safe : @message.content,
                                     image_preview: @message.iframely_preview
 
       ActionCable.server.broadcast "notification_channel",

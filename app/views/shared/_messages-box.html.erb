@@ -11,7 +11,7 @@
             <p> | <%= message.updated_at.strftime("%d/%m/%y à %Hh%M")%></p>
           </div>
           <div class="content">
-            <%= Rinku.auto_link(message.content, :all, 'target="_blank"').html_safe %>
+            <%= ((message.content[0..6] == "http://") || (message.content[0..7] == "https://")) ? ("<a href='"+message.content+"'> See picture website </a>").html_safe : message.content %>
           </div>
           <div class="iframe">
             <%= @iframely.get_oembed_json(message.first_url)["html"].html_safe if @iframely.get_oembed_json(message.first_url)["html"]  %>
