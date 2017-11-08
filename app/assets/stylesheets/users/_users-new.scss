@@ -29,9 +29,17 @@
         font-weight: lighter;
         color:rgba($dark-blue,0.6);
       }
+      option {
+        font-size: 0.9em;
+        font-weight: lighter;
+        color:rgba($dark-blue,0.6);
+      }
     }
     input,select {
       width: 9em;
+    }
+    #user_gender_female, #user_gender_male, .attachinary, .attachinary-input {
+      width:auto;
     }
 
     label {
