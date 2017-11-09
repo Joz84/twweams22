@@ -1,5 +1,5 @@
 .users-new {
-  height:93vh;
+  min-height: 93vh;
   // background-color:rgba($blue,0.1);
   background-image: image-url('bg-home-02.png');
   background-size: cover;
@@ -10,15 +10,13 @@
   padding-top: 1em;
 
   #form {
-    width: 40vw;
-    min-width: 25em;
-    max-height: 90vh;
+    width:40vw;
     display: flex;
     flex-direction: column;
     background-color: rgba($grey,0.6);
     border-radius:30px;
     border:2px solid white;
-    padding:2em 3em;
+    padding:2em 4vw 1em;
     margin:auto;
 
     input,select,textarea {
@@ -40,6 +38,7 @@
     }
     #user_gender_female, #user_gender_male, .attachinary, .attachinary-input {
       width:auto;
+      max-width: 14em;
     }
 
     label {
@@ -91,8 +90,20 @@
   }
 }
 
-@media screen and (max-width: 780px){
-  #form {
-    width:85vw !important;
+@media screen and (max-width: 870px){
+
+  .users-new {
+    padding-top: 0em !important;
+    #form {
+      width:auto !important;
+      border-radius: 0 !important;
+      max-height:100vh;
+
+      #more-info {
+        flex-direction: column !important;
+      }
+    }
   }
+
+
 }
