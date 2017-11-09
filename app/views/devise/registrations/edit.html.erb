@@ -41,6 +41,12 @@
           <div class="favorite-inputs">
             <p>Email : </p><%= f.input :email, label: false, placeholder: 'Ex: jeandupont@gmail.com' %>
           </div>
+          <div class="favorite-inputs">
+            <p>City : </p><%= f.input :city, required: true, label: false, placeholder: "City" %>
+          </div>
+          <div class="favorite-inputs">
+            <p>Country : </p><%= f.input :country, required: true, label: false, prompt: "Country" %>
+          </div>
 
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -122,5 +128,3 @@
     </div>
   </div>
 </div>
-
-
