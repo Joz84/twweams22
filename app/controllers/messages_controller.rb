@@ -16,12 +16,16 @@ class MessagesController < ApplicationController
                                     alias: current_user.alias,
                                     user_id: current_user.id,
                                     image_link: ((@message.content[0..6] == "http://") || (@message.content[0..7] == "https://")) ? ("<a href='"+@message.content+"'> See picture website </a>").html_safe : @message.content,
-                                    image_preview: @message.iframely_preview
+                                    image_preview: @message.iframely_preview,
+                                    user_birthday: Message.last.user.birthday,
+                                    current_user_birthday: current_user.birthday
 
       ActionCable.server.broadcast "notification_channel",
                                     content: @message.content,
                                     channel_id: @channel.id,
-                                    last_message_user_id: Message.last.user.id
+                                    last_message_user_id: Message.last.user.id,
+                                    user_birthday: Message.last.user.birthday,
+                                    current_user_birthday: current_user.birthday
 
     end
   end

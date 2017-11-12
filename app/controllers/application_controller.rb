@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def define_channels_users
-    gon.tab = current_user.channels.map(&:id) if current_user
+    gon.tab = current_user.messages.map(&:id) if current_user
   end
 
 
