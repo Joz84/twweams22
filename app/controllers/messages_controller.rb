@@ -17,7 +17,6 @@ class MessagesController < ApplicationController
                                     user_id: current_user.id,
                                     image_link: ((@message.content[0..6] == "http://") || (@message.content[0..7] == "https://")) ? ("<a href='"+@message.content+"'> See picture website </a>").html_safe : @message.content,
                                     image_preview: @message.iframely_preview,
-                                    user_birthday: Message.last.user.birthday,
                                     current_user_birthday: current_user.birthday
 
       ActionCable.server.broadcast "notification_channel",

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :define_channels_users
+  before_action :define_user_birthday
 
   def google_hash(users)
     @hash = Gmaps4rails.build_markers(users) do |user, marker|
@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: update_attributes)
   end
 
-  def define_channels_users
-    gon.tab = current_user.messages.map(&:id) if current_user
+  def define_user_birthday
+    gon.user = current_user.birthday if current_user
   end
 
 

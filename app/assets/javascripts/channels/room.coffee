@@ -11,14 +11,15 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when there's incoming data on the websocket for this channel
     unless data.content.blank?
       current_user_id = $('#current_user_id').text()
-      tab = gon.tab
+      user = gon.user
       a = data.user_id
       b = parseInt(current_user_id)
       x = data.image_preview
-      y = data.user_birthday
       z = data.current_user_birthday
 
-      if y == z
+      console.log(user==z)
+
+      if user == z
         if x is null
           x = " "
         $('#messages-table').append '<li id="message-container"><div id="message-infos"><h3>' + data.alias + '</h3> <p> | '+ data.msg_date+'</p></div>
