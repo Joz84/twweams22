@@ -10,6 +10,11 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+    <div class="loader">
+      <%= image_tag "logo-01.png", alt:"logo" %>
+      <div class="loading-pulse"></div>
+    </div>
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
@@ -21,6 +26,19 @@
 
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
+
+    <script>
+      var loader = document.querySelector(".loader")
+
+      window.addEventListener("load",function(){
+        // setTimeout(function(){
+            loader.className += ' hidden';
+        // }, 50);
+      });
+
+
+    </script>
     <%= yield(:after_js) %>
+
   </body>
 </html>

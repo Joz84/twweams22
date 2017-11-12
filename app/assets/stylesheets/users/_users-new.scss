@@ -10,11 +10,11 @@
   padding-top: 1em;
 
   #form {
-    width:40vw;
+    width:38vw;
     display: flex;
     flex-direction: column;
     background-color: rgba($grey,0.6);
-    border-radius:30px;
+    // border-radius:30px;
     border:2px solid white;
     padding:2em 4vw 1em;
     margin:auto;
@@ -67,7 +67,14 @@
     #user_gender {
       margin:0;
     }
-
+    #user_remember_me {
+      background-color: transparent;
+      box-shadow: none;
+    }
+    a {
+      color:$dark-blue;
+      text-decoration: none;
+    }
     #user_email, #user_password {
       width:100%;
     }
@@ -75,12 +82,10 @@
     #name,#location,#more-info,#password,#favorite {
       display:flex;
       flex-direction: row;
-      justify-content:space-between;
+      justify-content:space-around;
       align-items: center;
     }
-    #password,#more-info {
-      justify-content: space-around;
-    }
+
   }
 }
 
