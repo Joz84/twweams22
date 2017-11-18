@@ -16,6 +16,32 @@
       </div>
     <% end %>
   </div> -->
+  <% if current_user.sign_in_count == 1 %>
+    <div class="first-notice">
+      <p>Tu viens d'arriver ? Découvre comment utiliser <span id="twweams">Twweams</span></p>
+    </div>
+  <% end %>
+
+  <div id="tutorial">
+    <div class="tutorial-container">
+      <h2> Bienvenue sur Twweams !</h2>
+      <div class="tutorial-content">
+        <div class="tutorial-item">
+          <h3>1. Découvrez</h3>
+          <p> Vous venez d'arrivez, vous découvrirez sur cette page toutes les personnes nés le même jour que vous.</p>
+        </div>
+        <div class="tutorial-item">
+          <h3>2. Modifier</h3>
+          <p> De plus, il est possible de modifier vos informations personnelles en cliquant sur le personnage dans la barre de navigation.</p>
+        </div>
+        <div class="tutorial-item">
+          <h3>3. Rencontrez</h3>
+          <p> Finalement, recontrez et discuter avec vos Twweams en cliquant sur l'enveloppe bleu !</p>
+        </div>
+      </div>
+      <p id="close">Fermer</p>
+    </div>
+  </div>
 
   <div id="users-container">
     <div id="users-list">
@@ -39,3 +65,4 @@
 </div>
 
 <%= render 'shared/map' %>
+<%= javascript_include_tag 'tutoriel' %>

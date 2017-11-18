@@ -1,3 +1,84 @@
+.first-notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba($dark-blue,0.8);
+  border-bottom: 1px solid rgba($dark-blue, 0.1);
+  font-size: 1em;
+  p {
+    color:white;
+    margin: 0;
+    padding:0.5em;
+    text-align: center;
+    #twweams {
+      color:$blue;
+      cursor: pointer;
+    }
+  }
+}
+
+#tutorial {
+  display: none;
+  width:100vw;
+  height:100vh;
+  margin:0;
+  padding: 0;
+  top:0;
+  left:0;
+  position: fixed;
+  z-index: 99999;
+  background: rgba(black,0.4);
+  .tutorial-container {
+    max-width:45vw;
+    background-color: white;
+    min-width: 390px;
+    box-shadow: 0px 0px 20px 4px;
+    padding:1em;
+    display: flex;
+    flex-direction: column;
+    margin:8em auto 0;
+    h2 {
+      font-size: 1.5em;
+      margin:0.5em auto;
+    }
+    .tutorial-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: auto;
+      .tutorial-item {
+        max-width: 28em;
+        padding:0.5em;
+        text-align: center;
+        margin: auto;
+        p {
+          margin:0;
+          font-size: 0.8em;
+        }
+        h3 {
+          font-weight: bold;
+          font-size: 1em;
+        }
+
+      }
+    }
+
+    #close {
+      margin: 1.5em auto 0;
+      background-color: $dark-blue;
+      color:white;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      padding:0.5em 1em;
+      cursor: pointer;
+      &:hover {
+        color:$blue;
+      }
+    }
+  }
+}
+
 #users-index {
   #filters {
     background-color: #606b79;
