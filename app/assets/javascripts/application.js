@@ -9,3 +9,4 @@
 //= require_tree .
 //= stub counter-home
 //= stub slider-home
+//= stub tutoriel

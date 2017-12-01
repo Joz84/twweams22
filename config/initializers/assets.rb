@@ -14,3 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( slider-home.js )
 Rails.application.config.assets.precompile += %w( counter-home.js )
+Rails.application.config.assets.precompile += %w( tutoriel.js )
